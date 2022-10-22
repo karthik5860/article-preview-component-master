@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Article preview component</title>
+
+  <style>
+    body{
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      align-items: center;
+      background: hsl(210, 46%, 95%);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      color: hsl(214, 17%, 51%);
+    }
+    .container{
+      position: relative;
+    }
+    .main{
+      background: white;
+      width: 800px;
+      height: 300px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .image{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .content{
+      padding: 30px 40px;
+      height: 100%;
+    }
+    .heading{
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 25px;
+      color:  hsl(217, 19%, 35%);
+    }
+    .para{
+      font-size: 15px;
+      margin-bottom: 20px;      
+    }
+    .info{
+      display: flex;
+      align-items: center
+    }
+    .avatar{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .downbar{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .names{
+      font-size: 15px;
+    }
+    .name{
+      font-weight: 700;
+      color: hsl(217, 19%, 35%)
+    }
+    .share{
+      background: hsl(210, 46%, 95%);
+      width: 20px;
+      height: 20px;
+      padding: 10px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;      
+    }
+    .shareicon{
+      width: 20px;
+      height: 18px;
+    }
+    .share:hover{
+      background: hsl(212, 23%, 69%);
+    }
+
+    .share:hover .shareicon{
+      filter: brightness(0) invert(1);
+    }
+
+    .sharepop{
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 75%;
+      background: hsl(217, 19%, 35%);
+      box-sizing: border-box;
+      width: 250px;
+      height: 50px;
+      padding: 25px;
+      justify-content: space-around;
+      border-radius: 10px;
+      z-index: 99;
+      box-shadow: 0 10px 10px -10px gray;
+      display: none;
+    }
+    .sharepop:before{
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      background: hsl(217, 19%, 35%);
+      width: 30px;
+      height: 30px;
+      rotate: 45deg;
+      z-index: -1;
+    }
+    @media screen and (max-width: 800px){
+      .main{
+        grid-template-columns: 1fr;
+        width: 95%;
+        height: 95%;
+        margin: auto;
+        overflow: hidden;
+      }
+      .heading{
+        font-size: 20px;
+      }
+      .container{
+        overflow: hidden;
+      }
+      .sharepop{
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        top: 85%;
+        bottom: 0%;
+        left: 0%;
+        justify-content: flex-start;
+        border-radius: 0;
+        z-index: 0;
+      }
+      .sharepop img{
+        margin-left: 10px;
+      }
+      .share{
+        z-index: 99;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main">
+        <img class ="image" src="images/drawers.jpg">
+        <div class="content">
+        <div class="heading">
+          Shift the overall look and feel by adding these wonderful 
+          touches to furniture in your home
+        </div>
+        <div class="para">
+          Ever been in a room and felt like something was missing? Perhaps 
+          it felt slightly bare and uninviting. I’ve got some simple tips 
+          to help you make any room feel complete.  
+        </div>
+        <div class="downbar">
+        <div class="info">
+          <img src="images/avatar-michelle.jpg" class="avatar">
+          <div class="names">
+            <div class="name">Michelle Appleton</div>
+            <div class="date">28 Jun 2020</div>
+          </div>
+        </div>
+        <div class="share" onclick="displa()">
+          <img src="images/icon-share.svg" class="shareicon">            
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="sharepop" style="display:none">
+      S H A R E
+      <img src="images/icon-facebook.svg">
+      <img src="images/icon-twitter.svg">
+      <img src="images/icon-pinterest.svg">
+    </div>
+  </div>
+ 
+  <script>
+    const sharepop = document.getElementsByClassName('sharepop');
+    function displa(){
+      if( sharepop[0].style.display == 'none'){
+        sharepop[0].style.display = "flex"
+      }
+      else{
+        sharepop[0].style.display = "none"        
+      }
+    }
+
+  </script>
+
+  
+
+</body>
+</html>
